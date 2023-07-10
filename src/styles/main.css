@@ -4,7 +4,7 @@
 
 #grid-container {
     display: grid;
-    max-width: 1400px;
+    /* max-width: 100%; */
     min-height: 400px;
     min-width: 400px;
     grid-template-areas: "item1 item1 item1" "item2 item2 item2" "item3 item3 item3" "item4 item4 item4";
@@ -77,4 +77,96 @@
     cursor: pointer;
     width: 130px;
     height: 50px;
+}
+
+/* Responsive in small devices */
+@media (max-width: 600px) {
+    #grid-container {
+        grid-template-columns: 1fr 300px;
+        grid-template-areas:
+            "item1 item1"
+            "item2 item2"
+            "item3 item3"
+            "item4 item4";
+        margin: 0;
+    }
+
+    .item1 {
+        /* width: fit-content; */
+        font-size: small;
+        padding-bottom: 10px;
+    }
+
+    .item1>h1 {
+        /* width: fit-content; */
+        font-size: large;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        /* margin-right: ; */
+    }
+
+    .item1>nav {
+        width: 220px;
+        margin-right: 10px;
+        padding-top: 5px;
+    }
+
+    .item1>nav>ul>li:hover {
+        font-size: large;
+        transform: scale(1.1);
+
+    }
+
+    .item1>nav>ul {
+        width: 200px;
+
+    }
+
+    .item2 {
+        margin-top: 3px;
+        grid-area: item2;
+        font-size: 22px;
+    }
+
+    .item3>img {
+        width: 80px;
+        height: 80px;
+
+    }
+}
+
+@media(min-width:600px) {
+    h1 {
+        font-size: 30px;
+        padding-top: 15px;
+    }
+}
+
+@media(min-width: 1400px) {
+    #grid-container {
+        /* grid-template-columns: 2fr; */
+        margin: 50px;
+        /* width: 50%; */
+        font-size: x-large;
+    }
+
+    h1 {
+        font-size: xx-large;
+    }
+
+    .item1 {
+        /* width: fit-content; */
+        /* font-size: small; */
+        padding-bottom: 20px;
+    }
+
+    .item3 {
+        display: flex;
+        flex-grow: (2, 1);
+    }
+
+    img {
+        width: 250px;
+        height: 250px;
+    }
 }
