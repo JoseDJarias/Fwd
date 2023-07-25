@@ -1,4 +1,4 @@
-//variables
+//variables-----------------------------------------------------------------------------------------------------
 // const title = document.createElement('title')
 const container = document.createElement('todoList-container')
 const inputItems = document.createElement('div-items');
@@ -30,10 +30,10 @@ container.appendChild(listContainer);
 //append elements to body
 document.body.appendChild(container);
 
-// Events
+// Events---------------------------------------------------------------------------------------------------------------------
 buttonAddItem.addEventListener("click", addItems)
 
-// functions
+// functions -----------------------------------------------------------------------------------------------------------------
 function validationInput(){
   const inputBox = document.getElementById('items').value;
   if (!inputBox ) {
@@ -61,7 +61,7 @@ function addItems() {
    list.classList.add('list');
    //apend to the container list
    listContainer.appendChild(list);
-
+    
     }
     
   
