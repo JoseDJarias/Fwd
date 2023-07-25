@@ -1,3 +1,49 @@
-p{
-    font-size: xx-large;
+body{
+    margin: 30px auto;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    width: 700px;
+    height: 700px;
+}
+
+/* Contains the todo list  */
+.todoList-container{
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+    height: 100%;
+    padding: 0;
+    display: inline-block;
+
+}
+
+/* contains the list of task */
+.list-container{
+    margin: 20px;
+    padding: 10px;
+    max-width: 90%;
+    height: 90%;
+    background-color: blue;
+    display: flex;
+}
+
+/* indivual task  */
+.list{
+    height: 60px;
+    width: 90%;
+}
+/* task input */
+.div-items{
+    display: inline-block;
+    flex-direction: row;
+    width: 200px;
+    height: 35px;
+
+}
+
+
+/*  */
+.list-group{
+    width: 400px;
 }
