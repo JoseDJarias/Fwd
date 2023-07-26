@@ -3,9 +3,9 @@
 const container = document.createElement('todoList-container')
 const inputItems = document.createElement('div-items');
 const buttonAddItem = document.createElement('btn-addTask');
-const buttonEditItem = document.querySelector('.btn btn-outline-warning');
 const listContainer =document.createElement('list-container');
 const ul = document.createElement('ul');
+const clearItems = document.createElement('clearItems');
 // const item = document.createElement('item')
 
 // Global variables ----------------------------------------------------------------------------------------------------
@@ -13,8 +13,10 @@ const ul = document.createElement('ul');
 //innerHTML
 inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
 buttonAddItem.innerHTML = '<button>Add Items</button>';
+clearItems.innerHTML = 'Clear Items'
 
 // add class name
+clearItems.className ="clear-items"
 container.className = "todoList-container"
 inputItems.className ="div-items"
 buttonAddItem.className="buttonAddItem"
@@ -23,6 +25,7 @@ ul.className = "ul-list"
 
 // append element "ul" to the listContainer
 listContainer.appendChild(ul);
+listContainer.appendChild(clearItems);
 
 // append elements to the container
 container.appendChild(inputItems);
@@ -35,7 +38,7 @@ document.body.appendChild(container);
 // Events---------------------------------------------------------------------------------------------------------------------
 buttonAddItem.addEventListener("click", addItem2);
 
-buttonEditItem.addEventListener("click", editItem);
+// buttonEditItem.addEventListener("click", editItem);
 // Events---------------------------------------------------------------------------------------------------------------------
 
 
@@ -99,6 +102,7 @@ function validationInput() {
     }
     // console.log(ul.children);
 
+    // const buttonEditItem = document.getElementById('btn-edit');
     function editItem(){
       console.log('Hola esroytaatat');
     }
