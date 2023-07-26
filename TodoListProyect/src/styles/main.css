@@ -24,15 +24,19 @@ body{
     padding: 10px;
     max-width: 90%;
     height: 90%;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
+    
 }
 
 /* indivual task  */
-.list{
-    height: 60px;
-    width: 90%;
+.ul-list{
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
 }
+
+
 /* task input */
 .div-items{
     display: inline-block;
@@ -44,6 +48,3 @@ body{
 
 
 /*  */
-.list-group{
-    width: 400px;
-}
