@@ -1,11 +1,14 @@
-//variables-----------------------------------------------------------------------------------------------------
+//Global variables-----------------------------------------------------------------------------------------------------
 // const title = document.createElement('title')
 const container = document.createElement('todoList-container')
 const inputItems = document.createElement('div-items');
 const buttonAddItem = document.createElement('btn-addTask');
+const buttonEditItem = document.querySelector('.btn btn-outline-warning');
 const listContainer =document.createElement('list-container');
 const ul = document.createElement('ul');
 // const item = document.createElement('item')
+
+// Global variables ----------------------------------------------------------------------------------------------------
 
 //innerHTML
 inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
@@ -30,10 +33,13 @@ container.appendChild(listContainer);
 document.body.appendChild(container);
 
 // Events---------------------------------------------------------------------------------------------------------------------
-buttonAddItem.addEventListener("click", addItem2)
+buttonAddItem.addEventListener("click", addItem2);
+
+buttonEditItem.addEventListener("click", editItem);
+// Events---------------------------------------------------------------------------------------------------------------------
+
 
 // functions -----------------------------------------------------------------------------------------------------------------
-
 function validationInput() {
   const inputBox = document.getElementById('inputItem').value;
   if (!inputBox ) {
@@ -44,7 +50,6 @@ function validationInput() {
     return true
   }
   return false
-  // console.log('Valor: ', inputBox)
 }
 
 // function addItems() {
@@ -78,13 +83,25 @@ function validationInput() {
         newItem.innerHTML =   
         `<li class="list-group-item">
         <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio"  >
-        <label >${inputBox} </label>
+        <p >${inputBox} </p>
         <button type="button" class="btn btn-outline-warning">Warning</button>
         <button type="button" class="btn btn-outline-danger">Danger</button>
         </li>`;
+        //set id
+        var id = Date.now().toString(36) + Math.random().toString(36);
+        const attr = document.createAttribute('id');
+        attr.value = id;
+        console.log(attr.value);
+        newItem.setAttributeNode(attr);
+        // set id
         ul.appendChild(newItem);        
       }
     }
+    // console.log(ul.children);
 
-  
+    function editItem(){
+      console.log('Hola esroytaatat');
+    }
+
+  // functions ---------------------------------------------------------------------------------------------------------------------
   
