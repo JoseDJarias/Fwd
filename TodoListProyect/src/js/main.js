@@ -5,39 +5,54 @@ const inputItems = document.createElement('div-items');
 const buttonAddItem = document.createElement('btn-addTask');
 const listContainer =document.createElement('list-container');
 const ul = document.createElement('ul');
-const clearItems = document.createElement('clearItems');
+const btnClearItems = document.createElement('clearItems');
+const counterBox = document.createElement('counter-box')
+const firstBox = document.createElement('div')
 // const item = document.createElement('item')
 
 // Global variables ----------------------------------------------------------------------------------------------------
 
 //innerHTML
+firstBox.innerHTML = '<div></div>'
 inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
 buttonAddItem.innerHTML = '<button>Add Items</button>';
-clearItems.innerHTML = 'Clear Items'
+btnClearItems.innerHTML = '<button>Clear Items</button>';
+counterBox.innerHTML = `<div class="counter-box">
+                    <p>0</p>
+                    </div>`
 
 // add class name
-clearItems.className ="clear-items"
+firstBox.className = "first-box"
+btnClearItems.className ="clear-items"
 container.className = "todoList-container"
 inputItems.className ="div-items"
 buttonAddItem.className="buttonAddItem"
 listContainer.className ="list-container"
 ul.className = "ul-list"
+counterBox.className ='counter-box';
 
-// append element "ul" to the listContainer
+// append elements such as inputItems, buttonAddItems and counter to the first box
+firstBox.appendChild(inputItems);
+firstBox.appendChild(buttonAddItem);
+firstBox.appendChild(counterBox);
+
+// append element "ul" to the listContainer 
 listContainer.appendChild(ul);
-listContainer.appendChild(clearItems);
+listContainer.appendChild(btnClearItems);
 
 // append elements to the container
-container.appendChild(inputItems);
-container.appendChild(buttonAddItem);
+container.appendChild(firstBox);
 container.appendChild(listContainer);
 
 //append elements to body
 document.body.appendChild(container);
 
+// 
+listContainer.style.visibility = "hidden";
+
 // Events---------------------------------------------------------------------------------------------------------------------
 buttonAddItem.addEventListener("click", addItem2);
-
+btnClearItems.addEventListener('click',clearList)
 // buttonEditItem.addEventListener("click", editItem);
 // Events---------------------------------------------------------------------------------------------------------------------
 
@@ -55,57 +70,71 @@ function validationInput() {
   return false
 }
 
-// function addItems() {
-//   const inputBox = document.getElementById('inputItem').value;
-//   if (!validationInput()) {
-//     const prueba =
-//     `<ul class="list-group">
-//         <li class="list-group-item">
-//         <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio"  >
-//         <label >${inputBox} </label>
-//         <button type="button" class="btn btn-outline-warning">Warning</button>
-//         <button type="button" class="btn btn-outline-danger">Danger</button>
-//         </li>
-//      </ul>`; 
-//      console.log(prueba.textContent);
-//      item.innerHTML = prueba;
-     
-//      item.classList.add('item');
-  
-//      //apend to the container list
-//      console.log(item);
-//      listContainer.appendChild(item.textContent);    
-//     }
-    
-//   }
-  
-  function addItem2(){
+  function addItem2( ){
     const inputBox = document.getElementById('inputItem').value;
     if (!validationInput()) {
         const newItem = document.createElement('li');
+        // var inputID para evitar los mensaje de error en la consola por el id del input en newItem
+        var inputId =Date.now().toString(36) + Math.random(7/9).toString(36);
         newItem.innerHTML =   
+        // id for input
         `<li class="list-group-item">
-        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio"  >
+        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="${inputId}"  >
         <p >${inputBox} </p>
-        <button type="button" class="btn btn-outline-warning">Warning</button>
-        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn-edit">Edit</button>
+        <button type="button" class="btn-delete">Delete</button>
         </li>`;
-        //set id
-        var id = Date.now().toString(36) + Math.random().toString(36);
-        const attr = document.createAttribute('id');
-        attr.value = id;
-        console.log(attr.value);
-        newItem.setAttributeNode(attr);
-        // set id
-        ul.appendChild(newItem);        
+
+        ul.appendChild(newItem);  
+        
+        
+        const btnDelete = document.querySelector('.btn-delete');  
+        const btnEdit = document.querySelector('.btn-edit');      
+        btnEdit.addEventListener('click',editItem );
+        btnDelete.addEventListener('click',deleteItem );
+        // listContainer.classList.add('show-container')
+        listContainer.style.visibility = "visible";
       }
     }
-    // console.log(ul.children);
 
-    // const buttonEditItem = document.getElementById('btn-edit');
-    function editItem(){
-      console.log('Hola esroytaatat');
+    // edit item
+    function editItem(e) {
+      console.log('Holaaa');
     }
 
-  // functions ---------------------------------------------------------------------------------------------------------------------
-  
+    // delete item
+    function deleteItem(e) {
+      const element = e.currentTarget.parentElement.parentElement;
+      ul.removeChild(element)
+      
+      console.log('Holaaaa');
+    }
+
+    function clearList(){
+      ul.textContent = "";
+      let inputBox = document.getElementById('inputItem').value = '';
+      
+      listContainer.style.visibility = "hidden";
+    }
+    
+    function counter(){
+
+    }
+    // functions ---------------------------------------------------------------------------------------------------------------------
+    
+
+
+
+
+
+
+
+
+
+    //set id
+    // var id = Date.now().toString(36) + Math.random(7/9).toString(36);
+    // const attr = document.createAttribute('id');
+    // attr.value = id;
+    // console.log(attr.value);
+    // newItem.setAttributeNode(attr);
+    // // set id
