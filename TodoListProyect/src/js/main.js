@@ -13,7 +13,7 @@ const firstBox = document.createElement('div')
 inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
 buttonAddItem.innerHTML = '<button>Add Items</button>';
 btnClearItems.innerHTML = '<button>Clear Items</button>';
-counterBox.innerHTML = `<span>Tareas Completadas</span> <p>0</p>`
+counterBox.innerHTML = `<span>Tareas Completadas</span> <p class="counterNum">0</p>`
 
 // add class name
 container.className = "todoList-container"
@@ -116,6 +116,18 @@ function addItem2() {
         p.textContent = edit;
 
       }
+    })
+    checkbox.addEventListener('click', function () {
+      var counterNum = parseInt(document.querySelector('.counterNum').textContent);
+      counterNum++;
+      let counter = "Press a button!\nEither OK or Cancel.";
+      if (confirm(counter) == true) {
+        text = "You pressed OK!";
+      } else {
+        text = "You canceled!";
+      }
+      confirm('Press ok to confirm')
+      document.querySelector('.counterNum').textContent = counterNum;
     })
     // show de the listContainer
     listContainer.style.visibility = "visible";
