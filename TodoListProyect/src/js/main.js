@@ -69,97 +69,61 @@ function validationInput() {
 
   function addItem2( ){
     if (!validationInput()) {
-        const inputBox = document.getElementById('inputItem').value;
-        const newItem = document.createElement('li');
-        const div = document.createElement('div');
-        const p = document.createElement('p');
-        const btnEdit = document.createElement('button');
-        const btnDelete = document.createElement('button');
-        
-        p.textContent = inputBox;
-        btnEdit.textContent = 'Edit';
-        btnDelete.textContent = 'Delete';
-        btnEdit.type = 'checkbox';
-        btnDelete.type = 'checkbox';
-
+      const inputBox = document.getElementById('inputItem').value;
+      const newItem = document.createElement('li');
+      const div = document.createElement('div');
+      const p = document.createElement('p');
+      const btnEdit = document.createElement('button');
+      const btnDelete = document.createElement('button');
+      const checkbox = document.createElement('input');
+      
+      p.textContent = inputBox;
+      btnEdit.textContent = 'Edit';
+      btnDelete.textContent = 'Delete';
+      newItem.innerHTML = `<li class="list-group-item"></li>`;
+      btnEdit.type = 'checkbox';
+      btnDelete.type = 'checkbox';
+      checkbox.type ='checkbox';
+      
 
         btnEdit.className = 'btnBox';
         btnDelete.className ='btnBox'
         div.className = 'div-box'
         p.className = 'item-p'
-        
+        checkbox.className ='cbo'
+
+        // append elements to the div
+        div.appendChild(checkbox)
+        div.appendChild(newItem)
         div.appendChild(p);
         div.appendChild(btnEdit);
         div.appendChild(btnDelete);
-        // div.classList = '';
-
+        // append element div to the ul
         ul.appendChild(div);
 
+        // functions
         btnDelete.addEventListener('click', function(){
           console.log('click')
           div.remove();
         })
+        btnEdit.addEventListener('click',function (e) {
 
+          let edit = prompt("Edita tu tarea aqui!")
+          if (edit != null) {
+            p.textContent = edit;
+            
+          }
+        })
 
-
-        // var inputID para evitar los mensaje de error en la consola por el id del input en newItem
-        newItem.innerHTML =   
-        // id for input
-        `<li class="list-group-item">
-        </li>`;
-        // <button type="button" class="btn-edit">Edit</button>
-        // <button type="button" class="btn-delete">Delete</button>
-
-        ul.appendChild(newItem);  
-        
-        
-        // const btnDelete = document.querySelector('.btn-delete');  
-        // const btnEdit = document.querySelector('.btn-edit');      
-        // btnEdit.addEventListener('click',editItem );
-        // btnDelete.addEventListener('click',deleteItem );
-        // listContainer.classList.add('show-container')
         listContainer.style.visibility = "visible";
       }
     }
 
-    // edit item
-    function editItem(e) {
-      console.log('Holaaa');
-    }
-
-    // delete item
-    function deleteItem(e) {
-      const element = e.currentTarget.parentElement.parentElement;
-      ul.removeChild(element)
-      
-      console.log('Holaaaa');
-    }
-
     function clearList(){
-      ul.textContent = "";
-      let inputBox = document.getElementById('inputItem').value = '';
-      
+      ul.textContent = "";      
       listContainer.style.visibility = "hidden";
     }
-    
-    function counter(){
 
-    }
     // functions ---------------------------------------------------------------------------------------------------------------------
     
 
-
-
-
-
-
-
-
-
-    //set id
-    // var id = Date.now().toString(36) + Math.random(7/9).toString(36);
-    // const attr = document.createAttribute('id');
-    // attr.value = id;
-    // console.log(attr.value);
-    // newItem.setAttributeNode(attr);
-    // // set id

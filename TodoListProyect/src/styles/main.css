@@ -58,7 +58,12 @@ body{
     display: flex;
     flex-direction: column;
 }
-
+/* checkbox for the counter list */
+.cbo{
+    width: 20px;
+    height: 20px;
+    margin-right: 7px ;
+}
 /* div where individual items are */
 .div-box{
     display: flex;
