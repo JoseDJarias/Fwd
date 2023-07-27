@@ -20,22 +20,41 @@ body{
 /* contains the addItem button, the inputItem and the counter box */
 .first-box{
     width: 100%;
-    height: 100px;
-    background-color: aquamarine;
+    height: 80px;
     display: flex;
 }
 /* the counter box */
 .counter-box{
-    
+    margin-left: 100px;
+    width: 200px;
+    /* padding-left: 100px; */
+    height: 80px;
+    border-radius: 10px;
+        
+}
+.counter-box>p{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
+.counter-box>span{
+    padding-top: 3px;
+    width:100% ;   
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 
 /* contains the list of task */
 .list-container{
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     max-width: 90%;
     height: 90%;
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
 }
@@ -61,9 +80,21 @@ body{
 
 /* clear items */
 .clear-items{
+    margin-top: 20px;
     width: 100%;
-    height: 70px;
-    background-color: aqua;
+    height: 50px;
     display: flex;
     justify-content: center;
+}
+/* button clear items */
+.clear-items>button{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-style: groove;
+    background-color:powderblue ;
 }

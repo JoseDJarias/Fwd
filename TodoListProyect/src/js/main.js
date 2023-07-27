@@ -13,23 +13,20 @@ const firstBox = document.createElement('div')
 // Global variables ----------------------------------------------------------------------------------------------------
 
 //innerHTML
-firstBox.innerHTML = '<div></div>'
 inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
 buttonAddItem.innerHTML = '<button>Add Items</button>';
 btnClearItems.innerHTML = '<button>Clear Items</button>';
-counterBox.innerHTML = `<div class="counter-box">
-                    <p>0</p>
-                    </div>`
+counterBox.innerHTML = `<span>Tareas Completadas</span> <p>0</p>`
 
 // add class name
-firstBox.className = "first-box"
-btnClearItems.className ="clear-items"
 container.className = "todoList-container"
+firstBox.className = "first-box"
 inputItems.className ="div-items"
 buttonAddItem.className="buttonAddItem"
+counterBox.className ='counter-box';
+btnClearItems.className ="clear-items"
 listContainer.className ="list-container"
 ul.className = "ul-list"
-counterBox.className ='counter-box';
 
 // append elements such as inputItems, buttonAddItems and counter to the first box
 firstBox.appendChild(inputItems);
