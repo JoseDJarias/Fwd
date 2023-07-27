@@ -5,7 +5,9 @@ const inputItems = document.createElement('div-items');
 const buttonAddItem = document.createElement('btn-addTask');
 const listContainer =document.createElement('list-container');
 const ul = document.createElement('ul');
-const clearItems = document.createElement('clearItems');
+const btnClearItems = document.createElement('clearItems');
+const counterBox = document.createElement('counter-box')
+const firstBox = document.createElement('div')
 // const item = document.createElement('item')
 
 // Global variables ----------------------------------------------------------------------------------------------------
@@ -13,31 +15,41 @@ const clearItems = document.createElement('clearItems');
 //innerHTML
 inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
 buttonAddItem.innerHTML = '<button>Add Items</button>';
-clearItems.innerHTML = 'Clear Items'
+btnClearItems.innerHTML = '<button>Clear Items</button>';
+counterBox.innerHTML = `<span>Tareas Completadas</span> <p>0</p>`
 
 // add class name
-clearItems.className ="clear-items"
 container.className = "todoList-container"
+firstBox.className = "first-box"
 inputItems.className ="div-items"
 buttonAddItem.className="buttonAddItem"
+counterBox.className ='counter-box';
+btnClearItems.className ="clear-items"
 listContainer.className ="list-container"
 ul.className = "ul-list"
 
-// append element "ul" to the listContainer
+// append elements such as inputItems, buttonAddItems and counter to the first box
+firstBox.appendChild(inputItems);
+firstBox.appendChild(buttonAddItem);
+firstBox.appendChild(counterBox);
+
+// append element "ul" to the listContainer 
 listContainer.appendChild(ul);
-listContainer.appendChild(clearItems);
+listContainer.appendChild(btnClearItems);
 
 // append elements to the container
-container.appendChild(inputItems);
-container.appendChild(buttonAddItem);
+container.appendChild(firstBox);
 container.appendChild(listContainer);
 
 //append elements to body
 document.body.appendChild(container);
 
+// 
+listContainer.style.visibility = "hidden";
+
 // Events---------------------------------------------------------------------------------------------------------------------
 buttonAddItem.addEventListener("click", addItem2);
-
+btnClearItems.addEventListener('click',clearList)
 // buttonEditItem.addEventListener("click", editItem);
 // Events---------------------------------------------------------------------------------------------------------------------
 
@@ -55,57 +67,63 @@ function validationInput() {
   return false
 }
 
-// function addItems() {
-//   const inputBox = document.getElementById('inputItem').value;
-//   if (!validationInput()) {
-//     const prueba =
-//     `<ul class="list-group">
-//         <li class="list-group-item">
-//         <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio"  >
-//         <label >${inputBox} </label>
-//         <button type="button" class="btn btn-outline-warning">Warning</button>
-//         <button type="button" class="btn btn-outline-danger">Danger</button>
-//         </li>
-//      </ul>`; 
-//      console.log(prueba.textContent);
-//      item.innerHTML = prueba;
-     
-//      item.classList.add('item');
-  
-//      //apend to the container list
-//      console.log(item);
-//      listContainer.appendChild(item.textContent);    
-//     }
-    
-//   }
-  
-  function addItem2(){
-    const inputBox = document.getElementById('inputItem').value;
+  function addItem2( ){
     if (!validationInput()) {
-        const newItem = document.createElement('li');
-        newItem.innerHTML =   
-        `<li class="list-group-item">
-        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio"  >
-        <p >${inputBox} </p>
-        <button type="button" class="btn btn-outline-warning">Warning</button>
-        <button type="button" class="btn btn-outline-danger">Danger</button>
-        </li>`;
-        //set id
-        var id = Date.now().toString(36) + Math.random().toString(36);
-        const attr = document.createAttribute('id');
-        attr.value = id;
-        console.log(attr.value);
-        newItem.setAttributeNode(attr);
-        // set id
-        ul.appendChild(newItem);        
+      const inputBox = document.getElementById('inputItem').value;
+      const newItem = document.createElement('li');
+      const div = document.createElement('div');
+      const p = document.createElement('p');
+      const btnEdit = document.createElement('button');
+      const btnDelete = document.createElement('button');
+      const checkbox = document.createElement('input');
+      
+      p.textContent = inputBox;
+      btnEdit.textContent = 'Edit';
+      btnDelete.textContent = 'Delete';
+      newItem.innerHTML = `<li class="list-group-item"></li>`;
+      btnEdit.type = 'checkbox';
+      btnDelete.type = 'checkbox';
+      checkbox.type ='checkbox';
+      
+
+        btnEdit.className = 'btnBox';
+        btnDelete.className ='btnBox'
+        div.className = 'div-box'
+        p.className = 'item-p'
+        checkbox.className ='cbo'
+
+        // append elements to the div
+        div.appendChild(checkbox)
+        div.appendChild(newItem)
+        div.appendChild(p);
+        div.appendChild(btnEdit);
+        div.appendChild(btnDelete);
+        // append element div to the ul
+        ul.appendChild(div);
+
+        // functions
+        btnDelete.addEventListener('click', function(){
+          console.log('click')
+          div.remove();
+        })
+        btnEdit.addEventListener('click',function (e) {
+
+          let edit = prompt("Edita tu tarea aqui!")
+          if (edit != null) {
+            p.textContent = edit;
+            
+          }
+        })
+
+        listContainer.style.visibility = "visible";
       }
     }
-    // console.log(ul.children);
 
-    // const buttonEditItem = document.getElementById('btn-edit');
-    function editItem(){
-      console.log('Hola esroytaatat');
+    function clearList(){
+      ul.textContent = "";      
+      listContainer.style.visibility = "hidden";
     }
 
-  // functions ---------------------------------------------------------------------------------------------------------------------
-  
+    // functions ---------------------------------------------------------------------------------------------------------------------
+    
+
