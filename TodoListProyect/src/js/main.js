@@ -68,27 +68,55 @@ function validationInput() {
 }
 
   function addItem2( ){
-    const inputBox = document.getElementById('inputItem').value;
     if (!validationInput()) {
+        const inputBox = document.getElementById('inputItem').value;
         const newItem = document.createElement('li');
+        const div = document.createElement('div');
+        const p = document.createElement('p');
+        const btnEdit = document.createElement('button');
+        const btnDelete = document.createElement('button');
+        
+        p.textContent = inputBox;
+        btnEdit.textContent = 'Edit';
+        btnDelete.textContent = 'Delete';
+        btnEdit.type = 'checkbox';
+        btnDelete.type = 'checkbox';
+
+
+        btnEdit.className = 'btnBox';
+        btnDelete.className ='btnBox'
+        div.className = 'div-box'
+        p.className = 'item-p'
+        
+        div.appendChild(p);
+        div.appendChild(btnEdit);
+        div.appendChild(btnDelete);
+        // div.classList = '';
+
+        ul.appendChild(div);
+
+        btnDelete.addEventListener('click', function(){
+          console.log('click')
+          div.remove();
+        })
+
+
+
         // var inputID para evitar los mensaje de error en la consola por el id del input en newItem
-        var inputId =Date.now().toString(36) + Math.random(7/9).toString(36);
         newItem.innerHTML =   
         // id for input
         `<li class="list-group-item">
-        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="${inputId}"  >
-        <p >${inputBox} </p>
-        <button type="button" class="btn-edit">Edit</button>
-        <button type="button" class="btn-delete">Delete</button>
         </li>`;
+        // <button type="button" class="btn-edit">Edit</button>
+        // <button type="button" class="btn-delete">Delete</button>
 
         ul.appendChild(newItem);  
         
         
-        const btnDelete = document.querySelector('.btn-delete');  
-        const btnEdit = document.querySelector('.btn-edit');      
-        btnEdit.addEventListener('click',editItem );
-        btnDelete.addEventListener('click',deleteItem );
+        // const btnDelete = document.querySelector('.btn-delete');  
+        // const btnEdit = document.querySelector('.btn-edit');      
+        // btnEdit.addEventListener('click',editItem );
+        // btnDelete.addEventListener('click',deleteItem );
         // listContainer.classList.add('show-container')
         listContainer.style.visibility = "visible";
       }

@@ -59,6 +59,14 @@ body{
     flex-direction: column;
 }
 
+/* div where individual items are */
+.div-box{
+    display: flex;
+}
+.item-p{
+    width: 300px;
+    height: fit-content;
+}
 /* indivual task  */
 .ul-list{
 
@@ -97,4 +105,11 @@ body{
     border-radius: 10px;
     border-style: groove;
     background-color:powderblue ;
+}
+
+/* edit and delete button styles */
+.btnBox{
+    margin-left: 10px;
+    width: 60px;
+    height: 30px;
 }
