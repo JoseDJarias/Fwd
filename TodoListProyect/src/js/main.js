@@ -3,7 +3,7 @@ const container = document.createElement('todoList-container')
 const inputItems = document.createElement('div-items');
 const buttonAddItem = document.createElement('btn-addTask');
 const listContainer = document.createElement('list-container');
-const ul = document.createElement('ul');
+const divItem = document.createElement('div');
 const btnClearItems = document.createElement('clearItems');
 const counterBox = document.createElement('counter-box')
 const firstBox = document.createElement('div')
@@ -23,7 +23,7 @@ buttonAddItem.className = "buttonAddItem"
 counterBox.className = 'counter-box';
 btnClearItems.className = "clear-items"
 listContainer.className = "list-container"
-ul.className = "ul-list"
+divItem.className = "ul-list"
 
 // append elements such as inputItems, buttonAddItems and counter to the first box
 firstBox.appendChild(inputItems);
@@ -31,7 +31,7 @@ firstBox.appendChild(buttonAddItem);
 firstBox.appendChild(counterBox);
 
 // append element "ul" to the listContainer 
-listContainer.appendChild(ul);
+listContainer.appendChild(divItem);
 listContainer.appendChild(btnClearItems);
 
 // append elements to the container
@@ -55,10 +55,10 @@ btnClearItems.addEventListener('click', clearList)
 function validationInput() {
   const inputBox = document.getElementById('inputItem').value;
   if (!inputBox) {
-    alert('Empty Value')
+    alert('Valor vacio')
     return true
   } else if (!isNaN(inputBox)) {
-    alert('Not a String')
+    alert('No es un numero')
     return true
   }
   return false
@@ -105,7 +105,7 @@ function addItem2() {
     div.appendChild(btnDelete);
 
     // append element div to the ul
-    ul.appendChild(div);
+    divItem.appendChild(div);
 
     // alert.textContent = 'Tarea agregada a lista';
     // alert.classList.add('alert-success')
@@ -119,7 +119,7 @@ function addItem2() {
         counterNum--;
         document.querySelector('.counterNum').textContent = counterNum;
       }
-      if (ul.textContent === '') {
+      if (divItem.textContent === '') {
         btnClearItems.style.visibility = "hidden";
 
       }
@@ -154,7 +154,7 @@ function addItem2() {
 }
 
 function clearList() {
-  ul.textContent = "";
+  divItem.textContent = "";
   listContainer.style.visibility = "hidden";
   btnClearItems.style.visibility ="hidden"
 }
