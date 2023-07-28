@@ -10,9 +10,9 @@ const firstBox = document.createElement('div')
 // Global variables ----------------------------------------------------------------------------------------------------
 
 //innerHTML
-inputItems.innerHTML = `<input type="text" placeholder="Write a task!" id="inputItem">`;
-buttonAddItem.innerHTML = '<button>Add Items</button>';
-btnClearItems.innerHTML = '<button>Clear Items</button>';
+inputItems.innerHTML = `<input type="text" placeholder="Escribe una tarea!" id="inputItem">`;
+buttonAddItem.innerHTML = '<button>Añadir a la lista</button>';
+btnClearItems.innerHTML = '<button>Despejar la lista</button>';
 counterBox.innerHTML = `<span>Tareas Completadas</span> <p class="counterNum">0</p>`
 
 // add class name
@@ -68,7 +68,7 @@ function validationInput() {
 function addItem2() {
   if (!validationInput()) {
     // Global variables 
-    const inputBox = document.getElementById('inputItem').value;
+    let inputBox = document.getElementById('inputItem').value;
     // const newItem = document.createElement('li');
     const div = document.createElement('div');
     const p = document.createElement('p');
@@ -81,8 +81,8 @@ function addItem2() {
     btnClearItems.style.visibility = "visible"
 
     p.textContent = inputBox;
-    btnEdit.textContent = 'Edit';
-    btnDelete.textContent = 'Delete';
+    btnEdit.textContent = 'Editar';
+    btnDelete.textContent = 'Eliminar';
     // newItem.innerHTML = `<li></li>`;
 
     // type checkbox for the buttons
@@ -113,10 +113,9 @@ function addItem2() {
     // functions
     // delete
     btnDelete.addEventListener('click', function () {
-      console.log('click')
       div.remove();
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
-      if (counterNum > 0) {
+      if (counterNum > 0 && checkbox.checked) {
         counterNum--;
         document.querySelector('.counterNum').textContent = counterNum;
       }
@@ -129,9 +128,8 @@ function addItem2() {
     btnEdit.addEventListener('click', function (e) {
 
       let edit = prompt("Edita tu tarea aqui!")
-      if (edit != null) {
+      if (edit != ""  ) {
         p.textContent = edit;
-
       }
     })
     // counter
@@ -139,18 +137,26 @@ function addItem2() {
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
       confirm('Press ok to confirm')
       let text = '';
-      if (confirm(text) == true) {
+      if (checkbox.checked) {
         counterNum++;
       } else {
+        counterNum--
       }
       document.querySelector('.counterNum').textContent = counterNum;
+      console.log(checkbox.checked)
+
     })
+
+    // clear input
+    inputItems.innerHTML = `<input type="text" placeholder="Escribe una tarea!" id="inputItem">`;
+    
   }
 }
 
 function clearList() {
   ul.textContent = "";
   listContainer.style.visibility = "hidden";
+  btnClearItems.style.visibility ="hidden"
 }
 
     // functions ---------------------------------------------------------------------------------------------------------------------
