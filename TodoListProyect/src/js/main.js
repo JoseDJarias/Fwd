@@ -134,18 +134,14 @@ function addItem2() {
     // counter
     checkbox.addEventListener('click', function () {
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
-      confirm('Press ok to confirm')
-      let text = '';
       if ( checkbox.checked) {
         counterNum++;
       } else {
         counterNum--
       }
       document.querySelector('.counterNum').textContent = counterNum;
-      console.log(checkbox.checked)
 
     })
-
     // clear input
     inputItems.innerHTML = `<input type="text" placeholder="Escribe una tarea!" id="inputItem">`;
     
