@@ -83,7 +83,6 @@ function addItem2() {
     p.textContent = inputBox;
     btnEdit.textContent = 'Editar';
     btnDelete.textContent = 'Eliminar';
-    // newItem.innerHTML = `<li></li>`;
 
     // type checkbox for the buttons
     btnEdit.type = 'checkbox';
@@ -137,7 +136,7 @@ function addItem2() {
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
       confirm('Press ok to confirm')
       let text = '';
-      if (checkbox.checked) {
+      if ( checkbox.checked) {
         counterNum++;
       } else {
         counterNum--
@@ -154,9 +153,26 @@ function addItem2() {
 }
 
 function clearList() {
-  divItem.textContent = "";
-  listContainer.style.visibility = "hidden";
-  btnClearItems.style.visibility ="hidden"
+  let result = confirm('estas seguro que quieres vaciar la lista');
+  let message = result ? 'You clicked the OK button' :
+    'You clicked the Cancel button';
+    if (result) {
+      divItem.textContent = "";
+     listContainer.style.visibility = "hidden";
+     btnClearItems.style.visibility ="hidden"
+     document.querySelector('.counterNum').textContent = 0;
+    }
+
+  alert(message); 
+
+  // confirm('Presiona aceptar para vaciar')
+  // if (confirm('Lista vaciada')) {
+  //   divItem.textContent = "";
+  //   listContainer.style.visibility = "hidden";
+  //   btnClearItems.style.visibility ="hidden"
+  // }else{
+  //   confirm('No se vacio la lista')
+  // }
 }
 
     // functions ---------------------------------------------------------------------------------------------------------------------
