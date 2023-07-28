@@ -58,7 +58,7 @@ function validationInput() {
     alert('Valor vacio')
     return true
   } else if (!isNaN(inputBox)) {
-    alert('No es un numero')
+    alert('No,el valor es un numero')
     return true
   }
   return false
@@ -125,10 +125,11 @@ function addItem2() {
     })
     // edit
     btnEdit.addEventListener('click', function (e) {
-
       let edit = prompt("Edita tu tarea aqui!")
       if (edit != ""  ) {
-        p.textContent = edit;
+        p.textContent= edit;
+      }else{
+      
       }
     })
     // counter
