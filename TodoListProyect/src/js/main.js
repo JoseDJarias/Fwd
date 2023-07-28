@@ -76,7 +76,10 @@ function addItem2() {
     const btnDelete = document.createElement('button');
     const checkbox = document.createElement('input');
 
-  
+    // show de the listContainer
+    listContainer.style.visibility = "visible";
+    btnClearItems.style.visibility = "visible"
+
     p.textContent = inputBox;
     btnEdit.textContent = 'Edit';
     btnDelete.textContent = 'Delete';
@@ -104,11 +107,25 @@ function addItem2() {
     // append element div to the ul
     ul.appendChild(div);
 
+    // alert.textContent = 'Tarea agregada a lista';
+    // alert.classList.add('alert-success')
+
     // functions
+    // delete
     btnDelete.addEventListener('click', function () {
       console.log('click')
       div.remove();
+      var counterNum = parseInt(document.querySelector('.counterNum').textContent);
+      if (counterNum > 0) {
+        counterNum--;
+        document.querySelector('.counterNum').textContent = counterNum;
+      }
+      if (ul.textContent === '') {
+        btnClearItems.style.visibility = "hidden";
+
+      }
     })
+    // edit
     btnEdit.addEventListener('click', function (e) {
 
       let edit = prompt("Edita tu tarea aqui!")
@@ -117,20 +134,17 @@ function addItem2() {
 
       }
     })
+    // counter
     checkbox.addEventListener('click', function () {
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
-      counterNum++;
-      let counter = "Press a button!\nEither OK or Cancel.";
-      if (confirm(counter) == true) {
-        text = "You pressed OK!";
-      } else {
-        text = "You canceled!";
-      }
       confirm('Press ok to confirm')
+      let text = '';
+      if (confirm(text) == true) {
+        counterNum++;
+      } else {
+      }
       document.querySelector('.counterNum').textContent = counterNum;
     })
-    // show de the listContainer
-    listContainer.style.visibility = "visible";
   }
 }
 
