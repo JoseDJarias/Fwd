@@ -154,25 +154,15 @@ function addItem2() {
 
 function clearList() {
   let result = confirm('estas seguro que quieres vaciar la lista');
-  let message = result ? 'You clicked the OK button' :
-    'You clicked the Cancel button';
+  let message = result ? 'Aceptaste vaciar la lista' :
+    'Haz cancelado';
     if (result) {
       divItem.textContent = "";
      listContainer.style.visibility = "hidden";
      btnClearItems.style.visibility ="hidden"
      document.querySelector('.counterNum').textContent = 0;
     }
-
   alert(message); 
-
-  // confirm('Presiona aceptar para vaciar')
-  // if (confirm('Lista vaciada')) {
-  //   divItem.textContent = "";
-  //   listContainer.style.visibility = "hidden";
-  //   btnClearItems.style.visibility ="hidden"
-  // }else{
-  //   confirm('No se vacio la lista')
-  // }
 }
 
     // functions ---------------------------------------------------------------------------------------------------------------------
