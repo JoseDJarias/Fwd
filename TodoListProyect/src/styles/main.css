@@ -1,3 +1,151 @@
-p{
+body {
+    margin: 30px auto;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    width: 700px;
+    height: 700px;
+}
+
+/* Contains the todo list  */
+.todoList-container {
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+    height: 100%;
+    padding: 0;
+    display: inline-block;
+
+}
+
+/* contains the addItem button, the inputItem and the counter box */
+.first-box {
+    width: 100%;
+    height: 80px;
+    display: flex;
+}
+
+/* the counter box */
+.counter-box {
+    margin-left: 100px;
+    width: 200px;
+    /* padding-left: 100px; */
+    height: 80px;
+    border-radius: 10px;
+
+}
+
+/* paragraph inside the counter box */
+.counter-box>p {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: xx-large;
+}
+
+.counter-box>span {
+    padding-top: 3px;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* contains the list of task */
+.list-container {
+    margin: 10px;
+    padding: 10px;
+    max-width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* checkbox for the counter list */
+.cbo {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+/* div where individual items are */
+.div-box {
+    display: flex;
+}
+
+.item-p {
+    width: 300px;
+    height: fit-content;
+}
+
+/* indivual task  */
+.ul-list {
+
+    width: 100%;
+    height: max-content;
+    list-style-type: none;
+}
+
+
+/* task input */
+.div-items {
+    display: inline-block;
+    flex-direction: row;
+    width: 200px;
+    height: 35px;
+
+}
+
+
+/* clear items */
+.clear-items {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* button clear items */
+.clear-items>button {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-style: groove;
+    background-color: powderblue;
+}
+
+/* edit and delete button styles */
+.btnBox {
+    margin-left: 10px;
+    width: 80px;
+    height: 30px;
+}
+
+/* alert */
+.alert {
+    margin-bottom: 1rem;
+    height: 1.25rem;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    border-radius: 0.25rem;
+    text-transform: capitalize;
+}
+
+.alert-danger {
+    color: red;
+    background-color: whitesmoke;
+}
+
+.alert-success {
+    color: green;
+    background-color: whitesmoke;
 }
