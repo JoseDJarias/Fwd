@@ -133,16 +133,26 @@ function addItem2() {
     })
     // counter
     checkbox.addEventListener('click', function () {
+      
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
-      confirm('Press ok to confirm')
-      let text = '';
-      if ( checkbox.checked) {
+        if ( checkbox.checked) {
         counterNum++;
       } else {
         counterNum--
       }
       document.querySelector('.counterNum').textContent = counterNum;
-      console.log(checkbox.checked)
+      
+      // further validation w/ a confirm() method
+      // let result = confirm('Presiona para confirmar');
+        // if (result && checkbox.checked ) {
+        //   counterNum++;
+        // } 
+        // else if( counterNum>0 && !checkbox.checked){
+        //   counterNum--
+        // }else if (!result  ){
+
+        // }
+        // document.querySelector('.counterNum').textContent = counterNum;
 
     })
 
