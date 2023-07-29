@@ -54,7 +54,7 @@ btnClearItems.addEventListener('click', clearList)
 // functions -----------------------------------------------------------------------------------------------------------------
 function validationInput() {
   const inputBox = document.getElementById('inputItem').value;
-  if (!inputBox) {
+  if (!inputBox || inputBox.trim() === '') {
     alert('Valor vacio')
     return true
   } else if (!isNaN(inputBox)) {
@@ -75,6 +75,19 @@ function addItem2() {
     const btnEdit = document.createElement('button');
     const btnDelete = document.createElement('button');
     const checkbox = document.createElement('input');
+
+    // set date
+    // let small = document.createElement('small');
+    // // let date = new Date();
+    // small.textContent = 0;
+    // let parseSmall = parseInt(small.textContent);
+    // let daysAgo = daysAgo++;
+    // small.textContent = daysAgo;
+    // date = date.getDate();
+    // console.log(date);
+    // small.textContent = date;
+    // document.querySelector(".small").innerHTML = date;
+
 
     // show de the listContainer
     listContainer.style.visibility = "visible";
@@ -98,8 +111,8 @@ function addItem2() {
 
     // append elements to the div
     div.appendChild(checkbox)
-    // div.appendChild(newItem)
     div.appendChild(p);
+    // div.appendChild(small)
     div.appendChild(btnEdit);
     div.appendChild(btnDelete);
 
@@ -126,16 +139,15 @@ function addItem2() {
     // edit
     btnEdit.addEventListener('click', function (e) {
       let edit = prompt("Edita tu tarea aqui!")
-      if (edit != ""  ) {
-        p.textContent= edit;
-      }else{
-      
+      // In case that edid is null that show if the user press cancel, otherwise the user press accept 
+      if (edit !== null) {
+        p.textContent = edit;
       }
     })
     // counter
     checkbox.addEventListener('click', function () {
       var counterNum = parseInt(document.querySelector('.counterNum').textContent);
-      if ( checkbox.checked) {
+      if (checkbox.checked) {
         counterNum++;
       } else {
         counterNum--
@@ -145,21 +157,21 @@ function addItem2() {
     })
     // clear input
     inputItems.innerHTML = `<input type="text" placeholder="Escribe una tarea!" id="inputItem">`;
-    
+
   }
 }
 
 function clearList() {
   let result = confirm('estas seguro que quieres vaciar la lista');
   let message = result ? 'Aceptaste vaciar la lista' :
-    'Haz cancelado';
-    if (result) {
-      divItem.textContent = "";
-     listContainer.style.visibility = "hidden";
-     btnClearItems.style.visibility ="hidden"
-     document.querySelector('.counterNum').textContent = 0;
-    }
-  alert(message); 
+    'Has cancelado';
+  if (result) {
+    divItem.textContent = "";
+    listContainer.style.visibility = "hidden";
+    btnClearItems.style.visibility = "hidden"
+    document.querySelector('.counterNum').textContent = 0;
+  }
+  alert(message);
 }
 
     // functions ---------------------------------------------------------------------------------------------------------------------
