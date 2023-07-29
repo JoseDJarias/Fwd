@@ -23,14 +23,14 @@ buttonAddItem.className = "buttonAddItem"
 counterBox.className = 'counter-box';
 btnClearItems.className = "clear-items"
 listContainer.className = "list-container"
-divItem.className = "ul-list"
+divItem.className = "ul-list";
 
 // append elements such as inputItems, buttonAddItems and counter to the first box
 firstBox.appendChild(inputItems);
 firstBox.appendChild(buttonAddItem);
 firstBox.appendChild(counterBox);
 
-// append element "ul" to the listContainer 
+// append element "div-item" and "btnClearItems" to the listContainer 
 listContainer.appendChild(divItem);
 listContainer.appendChild(btnClearItems);
 
@@ -75,6 +75,8 @@ function addItem2() {
     const btnEdit = document.createElement('button');
     const btnDelete = document.createElement('button');
     const checkbox = document.createElement('input');
+    const personalAlert = document.createElement('alert')
+    const alertDiv = document.createElement('div')
 
     // set date
     // let small = document.createElement('small');
@@ -108,16 +110,23 @@ function addItem2() {
     div.className = 'div-box'
     p.className = 'item-p'
     checkbox.className = 'cbo'
+    personalAlert.className = 'alert';
+    alertDiv.className = 'alert-div'
 
     // append elements to the div
     div.appendChild(checkbox)
     div.appendChild(p);
-    // div.appendChild(small)
+    // where the alert its placed
+    alertDiv.appendChild(personalAlert)
     div.appendChild(btnEdit);
     div.appendChild(btnDelete);
 
-    // append element div to the ul
+    // append element div to the div
     divItem.appendChild(div);
+    listContainer.appendChild(alertDiv)
+
+    // item added
+    alerts('success', 'Item Añadido')
 
     // alert.textContent = 'Tarea agregada a lista';
     // alert.classList.add('alert-success')
@@ -135,6 +144,7 @@ function addItem2() {
         btnClearItems.style.visibility = "hidden";
 
       }
+      alerts('danger', 'Tarea  eliminada')
     })
     // edit
     btnEdit.addEventListener('click', function (e) {
@@ -155,24 +165,35 @@ function addItem2() {
       document.querySelector('.counterNum').textContent = counterNum;
 
     })
+    // alerts
+    function alerts(style, text) {
+      personalAlert.classList.add(`alert-${style}`);
+      personalAlert.textContent = text;
+      setTimeout(function () {
+        personalAlert.classList.remove(`alert-${style}`);
+        personalAlert.textContent = '';
+      }, 2000)
+    }
+    // remove alert
+
     // clear input
     inputItems.innerHTML = `<input type="text" placeholder="Escribe una tarea!" id="inputItem">`;
 
   }
 }
+// end addItems2
 
 function clearList() {
   let result = confirm('estas seguro que quieres vaciar la lista');
-  let message = result ? 'Aceptaste vaciar la lista' :
-    'Has cancelado';
   if (result) {
     divItem.textContent = "";
     listContainer.style.visibility = "hidden";
     btnClearItems.style.visibility = "hidden"
     document.querySelector('.counterNum').textContent = 0;
   }
-  alert(message);
 }
+
+
 
     // functions ---------------------------------------------------------------------------------------------------------------------
 

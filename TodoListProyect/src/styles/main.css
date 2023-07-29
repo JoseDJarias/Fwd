@@ -130,14 +130,26 @@ body {
 }
 
 /* alert */
+/* alert container */
+.alert-div {
+    min-width: 200px;
+    width: fit-content;
+    height: 30px;
+    /* background-color: aquamarine; */
+    position: absolute;
+    top: 100px;
+    right: 760px;
+}
+
 .alert {
     margin-bottom: 1rem;
-    height: 1.25rem;
+    height: 30px;
     align-items: center;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: large;
     border-radius: 0.25rem;
     text-transform: capitalize;
+    display: flex;
 }
 
 .alert-danger {
