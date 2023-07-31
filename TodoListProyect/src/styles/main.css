@@ -7,6 +7,15 @@ body {
     height: 700px;
 }
 
+/* header */
+header{
+    height: 500px;
+    width: 800px;
+    /* background-image: url(../images/banner.png);
+    background-size:contain ; */
+}
+/* header */
+
 /* Contains the todo list  */
 .todoList-container {
     padding: 10px;
