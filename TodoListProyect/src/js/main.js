@@ -1,6 +1,6 @@
 //Global variables-----------------------------------------------------------------------------------------------------
 const container = document.querySelector('.todoList-container')
-const firstBox = document.createElement('first-box')
+const firstBox = document.querySelector('.first-box')
 const inputItems = document.querySelector('.div-items');
 const buttonAddItem = document.querySelector('.buttonAddItem');
 const counterBox = document.querySelector('.counter-box')
@@ -8,7 +8,6 @@ const listContainer = document.querySelector('.list-container');
 const divItem = document.querySelector('.ul-list');
 const btnClearItems = document.querySelector('.clear-items');
 // Global variables ----------------------------------------------------------------------------------------------------
-
 
 // hide the list container where its created in the dom(and also when a user clear the items list),
 //  and just visible when a user enter a task
@@ -119,8 +118,11 @@ function addItem2() {
     btnEdit.addEventListener('click', function (e) {
       let edit = prompt("Edita tu tarea aqui!")
       // In case that edid is null that show if the user press cancel, otherwise the user press accept 
-      if (edit !== null) {
+      if (edit !== null && edit.trim() !== '') {
         p.textContent = edit;
+        alerts('success','Tarea Editada')
+      }else{
+        p.textContent ;
       }
     })
     // counter
@@ -141,7 +143,7 @@ function addItem2() {
       setTimeout(function () {
         personalAlert.classList.remove(`alert-${style}`);
         personalAlert.textContent = '';
-      }, 2000)
+      }, 1000)
     }
     // remove alert
     
@@ -164,4 +166,4 @@ function clearList() {
 
     // functions ---------------------------------------------------------------------------------------------------------------------
 
-
+  
